@@ -23,6 +23,9 @@ export const BuildWebpackConfig = (options: BuildOptions) => {
 		mode: mode,
 		plugins: BuildPlugins(options),
 		devServer: BuildDevServer(options),
+		performance: {
+			hints: false as 'warning' | 'error' | false
+		},
 	};
 };
 
