@@ -1,5 +1,5 @@
 import { DateSelectArg, EventApi } from '@fullcalendar/core';
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import FullCalendar from '@fullcalendar/react';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -44,6 +44,8 @@ export const Calendar = memo((props: CalendarProps) => {
 		setEvents(events);
 	};
 
+
+	// TODO выносить конфигурацию календаря в отдельный файл
 	return (
 		<div className={cls.container}>
 			<FullCalendar
@@ -60,6 +62,17 @@ export const Calendar = memo((props: CalendarProps) => {
 				selectable={true}
 				selectMirror={true}
 				eventsSet={handleSetEvents}
+				buttonText={{
+					today: 'сегодня',
+					month: 'месяц',
+					week: 'неделя',
+					day: 'день'
+				}}
+				allDayText='Весь день'
+				slotLabelFormat={{
+					hour: 'numeric',
+					minute: 'numeric'
+				}}
 			/>
 		</div>
 	);
